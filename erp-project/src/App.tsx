@@ -2,6 +2,17 @@ import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ModeToggle } from "@/components/mode-toggle"
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -13,7 +24,25 @@ function App() {
 
     <>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <ModeToggle></ModeToggle>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Início</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <NavigationMenuLink>Link</NavigationMenuLink>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <a href="test">Test link tttttt</a>
+                </NavigationMenuLink>
+
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <div className="relative ml-3"><ModeToggle></ModeToggle></div>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <div className="">
+
+
+        </div>
         <div className="border-2 border-solid w-24 sm:w-32 md:w-40 lg:w-48 justify-center mr-auto ml-auto">
           <a href="https://vite.dev" target="_blank" className="w-sm border-2 border-solid">
             <img src={viteLogo} className="logo w-24 sm:w-32 md:w-40 lg:w-48" alt="Vite logo" />
